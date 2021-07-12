@@ -4,12 +4,11 @@ import Typography from '@material-ui/core/Typography';
 export default function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Reffify
+      {`This a demo project built off of Wes Bos's `}
+      <Link color="inherit" href="https://advancedreact.com/">
+        Advanced React
       </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
+      {`Course.`}
     </Typography>
   );
 }
