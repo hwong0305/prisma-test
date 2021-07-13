@@ -4,28 +4,25 @@ import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Favorite from '@material-ui/icons/Favorite';
 import Grid from '@material-ui/core/Grid';
-import StarIcon from '@material-ui/icons/StarBorder';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Copyright from '../src/components/Copyright';
-import Box from '@material-ui/core/Box';
+import {CardMedia} from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
-  '@global': {
-    ul: {
-      margin: 0,
-      padding: 0,
-      listStyle: 'none',
-    },
-  },
   appBar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
+  },
+  favorite: {
+    position: 'absolute',
+    top: 12,
+    right: 12,
+    color: 'lightgray',
   },
   toolbar: {
     flexWrap: 'wrap',
@@ -39,60 +36,36 @@ const useStyles = makeStyles(theme => ({
   heroContent: {
     padding: theme.spacing(8, 0, 6),
   },
-  cardHeader: {
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[700],
+  card: {
+    maxWidth: 345,
+    position: 'relative',
   },
-  cardPricing: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'baseline',
-    marginBottom: theme.spacing(2),
-  },
-  footer: {
-    borderTop: `1px solid ${theme.palette.divider}`,
-    marginTop: theme.spacing(8),
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3),
-    [theme.breakpoints.up('sm')]: {
-      paddingTop: theme.spacing(6),
-      paddingBottom: theme.spacing(6),
-    },
+  cardMedia: {
+    height: 140,
   },
 }));
 
-const tiers = [
+const products = [
   {
-    title: 'Free',
-    price: '0',
-    description: ['10 users included', '2 GB of storage', 'Help center access', 'Email support'],
-    buttonText: 'Sign up for free',
-    buttonVariant: 'outlined',
+    id: 1,
+    title: 'Airmax 270',
+    price: 52.34,
+    description: 'A sick shoe',
+    image: 'https://via.placeholder.com/1920/1080',
   },
   {
-    title: 'Pro',
-    subheader: 'Most popular',
-    price: '15',
-    description: [
-      '20 users included',
-      '10 GB of storage',
-      'Help center access',
-      'Priority email support',
-    ],
-    buttonText: 'Get started',
-    buttonVariant: 'contained',
+    id: 2,
+    title: 'KITH Hoodie',
+    price: 329.99,
+    description: 'A sick hoodie',
+    image: 'https://via.placeholder.com/1920/1080',
   },
   {
-    title: 'Enterprise',
-    price: '30',
-    description: [
-      '50 users included',
-      '30 GB of storage',
-      'Help center access',
-      'Phone & email support',
-    ],
-    buttonText: 'Contact us',
-    buttonVariant: 'outlined',
+    id: 3,
+    title: 'Airmax 270',
+    price: 52.34,
+    description: 'A sick shoe',
+    image: 'https://via.placeholder.com/1920/1080',
   },
 ];
 
@@ -138,39 +111,32 @@ export default function Home() {
       </Container>
       {/* End hero unit */}
       <Container maxWidth="md" component="main">
-        <Grid container spacing={5} alignItems="flex-end">
-          {tiers.map(tier => (
-            // Enterprise card is full width at sm breakpoint
-            <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={4}>
-              <Card>
-                <CardHeader
-                  title={tier.title}
-                  subheader={tier.subheader}
-                  titleTypographyProps={{align: 'center'}}
-                  subheaderTypographyProps={{align: 'center'}}
-                  action={tier.title === 'Pro' ? <StarIcon /> : null}
-                  className={classes.cardHeader}
-                />
+        <Grid container spacing={5} justifyContent="center" alignItems="center">
+          {products.map(product => (
+            <Grid item key={product.id} xs={12} sm={6} md={4}>
+              <Card className={classes.card}>
+                <CardMedia
+                  component="img"
+                  alt="Image"
+                  title="Contemplative Reptile"
+                  image="https://via.placeholder.com/1920/1080"
+                  className={classes.cardMedia}
+                ></CardMedia>
+                <Favorite className={classes.favorite} />
                 <CardContent>
-                  <div className={classes.cardPricing}>
-                    <Typography component="h2" variant="h3" color="textPrimary">
-                      ${tier.price}
-                    </Typography>
-                    <Typography variant="h6" color="textSecondary">
-                      /mo
-                    </Typography>
-                  </div>
-                  <ul>
-                    {tier.description.map(line => (
-                      <Typography component="li" variant="subtitle1" align="center" key={line}>
-                        {line}
-                      </Typography>
-                    ))}
-                  </ul>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {product.title}
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary" component="p">
+                    {product.description}
+                  </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button fullWidth variant={tier.buttonVariant} color="primary">
-                    {tier.buttonText}
+                  <Button size="small" color="primary">
+                    View
+                  </Button>
+                  <Button size="small" color="primary">
+                    Add to Cart
                   </Button>
                 </CardActions>
               </Card>
