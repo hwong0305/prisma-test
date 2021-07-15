@@ -9,5 +9,8 @@
   },
   "devDependencies": {
     "prisma": "^2.26.0"
+  },
+  "scripts": {
+    "start": "PORT=4324 nodemon src/server.js"
   }
 }
