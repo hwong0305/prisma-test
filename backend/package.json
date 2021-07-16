@@ -9,9 +9,11 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "esm": "^3.2.25",
+    "nodemon": "^2.0.12",
     "prisma": "^2.26.0"
   },
   "scripts": {
-    "start": "PORT=4324 nodemon src/server.js"
+    "start": "PORT=4324 nodemon -r esm src/server.js"
   }
 }

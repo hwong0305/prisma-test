@@ -1,10 +1,10 @@
-const express = require('express');
-const morgan = require('morgan');
+import express from 'express';
+import morgan from 'morgan';
 
 const app = express();
 const PORT = process.env.PORT;
 
-app.use(morgan('dev'));
+app.use(morgan('combined'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
