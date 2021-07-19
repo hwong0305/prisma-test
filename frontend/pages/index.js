@@ -18,11 +18,15 @@ const useStyles = makeStyles(theme => ({
   appBar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
   },
-  favorite: {
+  price: {
     position: 'absolute',
-    top: 12,
-    right: 12,
-    color: 'lightgray',
+    top: 5,
+    right: 5,
+    background: 'red',
+    color: 'white',
+    padding: '0.2rem',
+    borderRadius: '0.5rem',
+    opacity: 0.7,
   },
   toolbar: {
     flexWrap: 'wrap',
@@ -66,6 +70,14 @@ const products = [
     price: 52.34,
     description: 'A sick shoe',
     image: 'https://via.placeholder.com/1920/1080',
+  },
+  {
+    id: 4,
+    title: 'Tech Scarf',
+    price: 39.99,
+    description: '80% Wool / 20% Acryllic',
+    image:
+      'https://cdn.shopify.com/s/files/1/0058/4538/5314/products/P1010203_2_600x.jpg?v=1612559171',
   },
 ];
 
@@ -117,12 +129,14 @@ export default function Home() {
               <Card className={classes.card}>
                 <CardMedia
                   component="img"
-                  alt="Image"
-                  title="Contemplative Reptile"
-                  image="https://via.placeholder.com/1920/1080"
+                  alt={product.title}
+                  title={product.title}
+                  image={product.image}
                   className={classes.cardMedia}
                 ></CardMedia>
-                <Favorite className={classes.favorite} />
+                <Typography variant="h5" component="h3" className={classes.price}>
+                  ${product.price}
+                </Typography>
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
                     {product.title}
