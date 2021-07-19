@@ -33,7 +33,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/register', async (req, res) => {
   const {email, password} = req.body;
   const hash = await hashPassword(password);
 
