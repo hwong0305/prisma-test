@@ -1,23 +1,18 @@
 import React, {Fragment} from 'react';
-import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Favorite from '@material-ui/icons/Favorite';
 import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
 import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {CardMedia} from '@material-ui/core';
 
+import Header from '../src/components/Header';
+
 const useStyles = makeStyles(theme => ({
-  appBar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
-  },
   price: {
     position: 'absolute',
     top: 5,
@@ -27,15 +22,6 @@ const useStyles = makeStyles(theme => ({
     padding: '0.2rem',
     borderRadius: '0.5rem',
     opacity: 0.7,
-  },
-  toolbar: {
-    flexWrap: 'wrap',
-  },
-  toolbarTitle: {
-    flexGrow: 1,
-  },
-  link: {
-    margin: theme.spacing(1, 1.5),
   },
   heroContent: {
     background: `url(
@@ -99,34 +85,11 @@ export default function Home() {
   return (
     <Fragment>
       <CssBaseline />
-      <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
-        <Toolbar className={classes.toolbar}>
-          <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-            Sick Fits
-          </Typography>
-          <nav>
-            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
-              Products
-            </Link>
-            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
-              Orders
-            </Link>
-            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
-              Sell
-            </Link>
-            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
-              Wishlist
-            </Link>
-          </nav>
-          <Button href="#" color="primary" variant="outlined" className={classes.link}>
-            Login
-          </Button>
-        </Toolbar>
-      </AppBar>
+      <Header />
       {/* Hero unit */}
-      <Container maxWidth="false" component="main" className={classes.heroContent}>
+      <Container maxWidth={false} component="main" className={classes.heroContent}>
         <Grid container spacing={7} justifyContent="spaceEvenly" alignItems="center">
-          <Grid item xs={5} spacing={5}>
+          <Grid item xs={5}>
             <Card className={classes.heroCard}>
               <Typography
                 component="h1"
