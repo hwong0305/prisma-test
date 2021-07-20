@@ -18,10 +18,9 @@ model Item {
   image     String   @db.VarChar(255)
   name      String   @db.VarChar(255)
   price     Decimal  @db.Money
-  seller    User     @relation(fields: [userId], references: [id])
   Order     Order?   @relation(fields: [orderId], references: [id])
+  Quantity  Int
   orderId   Int?
-  userId    Int
 }
 
 model User {
@@ -31,7 +30,6 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   Order     Order[]
-  Item      Item[]
 }
 
 model Order {

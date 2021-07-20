@@ -51,33 +51,32 @@ const useStyles = makeStyles(theme => ({
 
 const products = [
   {
-    id: 1,
-    title: 'Airmax 270',
-    price: 52.34,
-    description: 'A sick shoe',
-    image: 'https://via.placeholder.com/1920/1080',
-  },
-  {
-    id: 2,
-    title: 'KITH Hoodie',
-    price: 329.99,
-    description: 'A sick hoodie',
-    image: 'https://via.placeholder.com/1920/1080',
-  },
-  {
-    id: 3,
-    title: 'Airmax 270',
-    price: 52.34,
-    description: 'A sick shoe',
-    image: 'https://via.placeholder.com/1920/1080',
-  },
-  {
     id: 4,
     title: 'Tech Scarf',
     price: 39.99,
     description: '80% Wool / 20% Acryllic',
     image:
       'https://cdn.shopify.com/s/files/1/0058/4538/5314/products/P1010203_2_600x.jpg?v=1612559171',
+  },
+  {
+    id: 5,
+    title: `The ABC's of Gaming Book`,
+    price: 14.99,
+    description: `The ABC's of Gaming is Linus Media Group's first fully custom illustrated board book, and aims to provide a fun tech-themed ABC journey for both kids and adults.
+    It's perfect to read aloud to kids ages 6m-3yr who are learning the alphabet, but the fun rhymes and bright illustrations can be enjoyed by older kids as well.
+    `,
+    image:
+      'https://cdn.shopify.com/s/files/1/0058/4538/5314/products/Frontface_1400x.jpg?v=1623954925',
+  },
+  {
+    id: 6,
+    title: 'White & Black Insulated Water Bottle',
+    price: 29.99,
+    description: `Show off your inner techie in style with the LTT vacuum-insulated water bottle. 
+    Linus Tech Tips vacuum insulated water bottles are intended to keep hot drinks hot for up to 8 hours, and cold drinks cold for up to 16 hours.
+    Holds 21 fluid ounces`,
+    image:
+      'https://cdn.shopify.com/s/files/1/0058/4538/5314/products/0001_df266121-bef0-4f6c-ad1b-dc06a84579ee_1400x.jpg?v=1570812307',
   },
 ];
 
@@ -140,9 +139,6 @@ export default function Home() {
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
                     {product.title}
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" component="p">
-                    {product.description}
                   </Typography>
                 </CardContent>
                 <CardActions>
