@@ -38,7 +38,20 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1, 1.5),
   },
   heroContent: {
+    background: `url(
+      'https://cdn.pixabay.com/photo/2015/10/12/15/18/clothing-store-984396_1280.jpg'
+    )`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
     padding: theme.spacing(8, 0, 6),
+  },
+  heroCard: {
+    marginLeft: theme.spacing(5),
+    padding: '2rem',
+  },
+  products: {
+    marginTop: '2rem',
   },
   card: {
     maxWidth: 345,
@@ -111,18 +124,31 @@ export default function Home() {
         </Toolbar>
       </AppBar>
       {/* Hero unit */}
-      <Container maxWidth="sm" component="main" className={classes.heroContent}>
-        <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-          Pricing
-        </Typography>
-        <Typography variant="h5" align="center" color="textSecondary" component="p">
-          Quickly build an effective pricing table for your potential customers with this layout.
-          It&apos;s built with default Material-UI components with little customization.
-        </Typography>
+      <Container maxWidth="false" component="main" className={classes.heroContent}>
+        <Grid container spacing={7} justifyContent="spaceEvenly" alignItems="center">
+          <Grid item xs={5} spacing={5}>
+            <Card className={classes.heroCard}>
+              <Typography
+                component="h1"
+                variant="h3"
+                align="center"
+                color="textPrimary"
+                gutterBottom
+              >
+                Pricing
+              </Typography>
+              <Typography variant="h6" align="center" color="textSecondary" component="p">
+                Quickly build an effective pricing table for your potential customers with this
+                layout. It&apos;s built with default Material-UI components with little
+                customization.
+              </Typography>
+            </Card>
+          </Grid>
+        </Grid>
       </Container>
       {/* End hero unit */}
-      <Container maxWidth="md" component="main">
-        <Grid container spacing={5} justifyContent="center" alignItems="center">
+      <Container maxWidth="md" component="main" className={classes.products}>
+        <Grid container spacing={5} justifyContent="center">
           {products.map(product => (
             <Grid item key={product.id} xs={12} sm={6} md={4}>
               <Card className={classes.card}>
