@@ -88,7 +88,7 @@ export default function Home() {
       <Header />
       {/* Hero unit */}
       <Container maxWidth={false} component="main" className={classes.heroContent}>
-        <Grid container spacing={7} justifyContent="spaceEvenly" alignItems="center">
+        <Grid container spacing={7} justifyContent="flex-start" alignItems="center">
           <Grid item xs={5}>
             <Card className={classes.heroCard}>
               <Typography
