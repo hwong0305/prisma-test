@@ -1,6 +1,15 @@
 import {Fragment, useState} from 'react';
 import {makeStyles} from '@material-ui/styles';
-import {Button, CssBaseline, Container, Grid, InputBase, Paper, TextField} from '@material-ui/core';
+import {
+  Button,
+  CssBaseline,
+  Container,
+  Grid,
+  InputBase,
+  Paper,
+  TextField,
+  Typography,
+} from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -9,21 +18,27 @@ const useStyles = makeStyles(theme => ({
   base: {
     height: '100%',
   },
-  input: {
+  htmlInput: {
     display: 'none',
   },
   form: {
+    marginTop: '1rem',
     '& > *': {
       marginBottom: theme.spacing(2),
     },
   },
+  input: {
+    textOverflow: 'ellipsis',
+  },
   paper: {
-    padding: '2rem',
+    padding: '3rem',
+    margin: theme.spacing(8, 4),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   upload: {
-    border: 'solid 1px rgba(133,133,133,0.5)',
-    borderRadius: '4px',
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
   },
 }));
 
@@ -48,43 +63,40 @@ export default function Upload() {
         >
           <Grid item>
             <Paper elevation={3} className={classes.paper}>
-              <h1>Sell your product</h1>
+              <Typography component="h1" variant="h5">
+                Sell your Product
+              </Typography>
               <form className={classes.form} noValidate>
                 <TextField variant="outlined" label="Name" fullWidth />
                 <TextField variant="outlined" label="Price" fullWidth />
                 <TextField variant="outlined" label="Description" multiline fullWidth />
-                <div className={classes.upload}>
-                  <input
-                    accept="image/*"
-                    id="contained-button-file"
-                    multiple
-                    className={classes.input}
-                    type="file"
-                    onChange={onChange}
-                  />
-                  <label htmlFor="contained-button-file">
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      component="span"
-                      style={{
-                        marginRight: '15px',
-                      }}
-                    >
-                      Upload
-                    </Button>
-                  </label>
-                  <InputBase
-                    placeholder="No File Chosen"
-                    value={fileName}
-                    style={{
-                      paddingTop: '6px',
-                      paddingBottom: '6px',
-                    }}
-                    readonly
-                  />
-                </div>
-                <Grid item container justifyContent="center" alignItems="center">
+                <Grid container item xs={12} className={classes.upload} spacing={2}>
+                  <Grid item xs={4}>
+                    <input
+                      accept="image/*"
+                      id="contained-button-file"
+                      multiple
+                      className={classes.htmlInput}
+                      type="file"
+                      onChange={onChange}
+                    />
+                    <label htmlFor="contained-button-file">
+                      <Button variant="contained" color="secondary" component="span">
+                        Upload
+                      </Button>
+                    </label>
+                  </Grid>
+                  <Grid item xs={8}>
+                    <InputBase
+                      placeholder="No File Chosen"
+                      value={fileName}
+                      classes={{input: classes.input}}
+                      fullWidth
+                      readOnly
+                    />
+                  </Grid>
+                </Grid>
+                <Grid item container justifyContent="flex-end" alignItems="center" spacing={2}>
                   <Button variant="contained" color="primary" component="span">
                     Submit
                   </Button>
