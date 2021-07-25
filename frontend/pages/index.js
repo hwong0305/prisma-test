@@ -1,16 +1,19 @@
 import React, {Fragment} from 'react';
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import {CardMedia} from '@material-ui/core';
+import {
+  Button,
+  Container,
+  CardMedia,
+  makeStyles,
+  Card,
+  CardActions,
+  CardContent,
+  CssBaseline,
+  Grid,
+  Typography,
+} from '@material-ui/core';
 
 import Header from '../src/components/Header';
+import Cart from '../src/components/Cart';
 
 const useStyles = makeStyles(theme => ({
   price: {
@@ -86,9 +89,10 @@ export default function Home() {
     <Fragment>
       <CssBaseline />
       <Header />
+      <Cart products={products} />
       {/* Hero unit */}
       <Container maxWidth={false} component="main" className={classes.heroContent}>
-        <Grid container spacing={7} justifyContent="flex-start" alignItems="center">
+        <Grid container spacing={0} justifyContent="flex-start" alignItems="center">
           <Grid item xs={5}>
             <Card className={classes.heroCard}>
               <Typography
